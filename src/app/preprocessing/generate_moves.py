@@ -1,6 +1,6 @@
 import json
 
-file_dataset = '../../data/sample.json'
+file_dataset = '../../data/preprocess.json'
 file_output = '../../data/moves.json'
 
 # Open the JSON file
