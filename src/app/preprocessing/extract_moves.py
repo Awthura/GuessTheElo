@@ -1,6 +1,7 @@
 import json
+import re
 
-file_dataset = 'src/data/sample.json'
+file_dataset = 'src/data/preprocess.json'
 file_output = 'src/data/preprocess.json'
 
 # Open the JSON file
@@ -11,8 +12,14 @@ filtered_data = []
 
 # Access the 'pgn' variable and print its value
 for game in chess_data:
-    moves = game['pgn'].split('\n\n')
-    moves = moves[1]
+    moves_with_time = game['moves_with_time']
+
+    # Remove time annotations using regex
+    moves_without_time = re.sub(r'\{[^}]+\}', '', moves_with_time).strip()
+
+    # Remove move numbers and end result from the move notation
+    moves_without_numbers_result = re.sub(r'\d+\.{1,3}\s*|\d-\d$', '', moves_without_time).strip()
+
     filtered_item = {
         'white_username': game['white_username'],
         'black_username': game['black_username'],
@@ -23,11 +30,11 @@ for game in chess_data:
         'time_control': game['time_control'],
         'fen': game['fen'],
         'pgn': game['pgn'],
-        'moves_with_time': moves
+        'moves_with_time': moves_with_time,
+        'moves': moves_without_time,
+        'moves_san':moves_without_numbers_result
     }
     filtered_data.append(filtered_item)
-
-print(moves)
 
 with open(file_output, 'w') as file:
     json.dump(filtered_data, file, indent=4)

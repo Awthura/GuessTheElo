@@ -16,7 +16,7 @@ rating_bins = [
 ]
 
 # Load the JSON data from the file
-json_file_path = 'src/data/sample.json'
+json_file_path = 'src/data/preprocess.json'
 with open(json_file_path) as file:
     data = json.load(file)
 
