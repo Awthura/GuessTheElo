@@ -18,7 +18,7 @@ for game in chess_data:
     moves_without_time = re.sub(r'\{[^}]+\}', '', moves_with_time).strip()
 
     # Remove move numbers and end result from the move notation
-    moves_without_numbers_result = re.sub(r'\d+\.{1,3}\s*|\d-\d$', '', moves_without_time).strip()
+    moves_without_numbers_result = re.sub(r'\d+\.{1,3}\s*|\s*\d/\d-\d/\d$|\s*1-0$|\s*0-1$', '', moves_without_time).strip()
 
     filtered_item = {
         'white_username': game['white_username'],
@@ -32,7 +32,7 @@ for game in chess_data:
         'pgn': game['pgn'],
         'moves_with_time': moves_with_time,
         'moves': moves_without_time,
-        'moves_san':moves_without_numbers_result
+        'moves_san': moves_without_numbers_result
     }
     filtered_data.append(filtered_item)
 
