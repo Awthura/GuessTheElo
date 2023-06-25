@@ -26,6 +26,7 @@ openings_dict = {
     "Nf3  e6": "Nimzo-Indian Defense",
     "Nf3  c5": "English Opening",
     "c4  c5": "English Opening",
+    "c4  b6": "English Opening",
     "c4  Nf6": "English Opening",
     "g3  e5": "King's Fianchetto Opening",
     "g3  d5": "King's Fianchetto Opening",

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the JSON data
-with open('src/data/fetiny2.json') as json_file:
+with open('src/data/feature_engineered.json') as json_file:
     data = json.load(json_file)
 
 # Prompt for the item number
