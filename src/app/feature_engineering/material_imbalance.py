@@ -5,7 +5,7 @@ import json
 import re
 
 # Load the preprocess.json file
-with open('src/data/fetiny.json', 'r') as file:
+with open('../../data/feature_engineered.json', 'r') as file:
     data = json.load(file)
 
 # Iterate over the games and calculate material imbalance after each move
@@ -37,16 +37,16 @@ for entry in data:
         fen = board.fen()
         fen_parts = fen.split(' ')
         fen_pieces = fen_parts[0]
-        print(fen_pieces)
+        # print(fen_pieces)
 
         white_pieces = re.findall('[PNBRQK]', fen_pieces)
         black_pieces = re.findall('[pnbrqk]', fen_pieces)
-        print(white_pieces)
-        print(black_pieces)
+        # print(white_pieces)
+        # print(black_pieces)
         white_count = sum(piece_values.get(piece, 0) for piece in white_pieces)
         black_count = sum(piece_values.get(piece, 0) for piece in black_pieces)
-        print(white_count)
-        print(black_count)
+        # print(white_count)
+        # print(black_count)
 
         material_imbalance = white_count - black_count
         material_imbalance_vector.append(material_imbalance)
@@ -57,5 +57,5 @@ for entry in data:
 
 
 # Save the updated data to a new file feature_engineered.json
-with open('src/data/fetiny2.json', 'w') as file:
+with open('../../data/feature_engineered.json', 'w') as file:
     json.dump(data, file, indent=4)
