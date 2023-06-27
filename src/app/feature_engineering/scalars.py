@@ -37,6 +37,8 @@ for entry in data:
 
     entry['area_ratio'] = areaRatioHandle(area_above_zero,area_below_zero)
     entry['area_ratio_rev'] = areaRatioHandle(area_below_zero,area_above_zero)
+    entry['relative_area_white'] = round(relative_area_above_zero,3)
+    entry['relative_area_black'] = round(relative_area_below_zero,3)
     entry['relative_game_advantage'] = round(relative_game_advantage,3)
 
     print("Success")

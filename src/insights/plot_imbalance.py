@@ -14,10 +14,7 @@ if item_number < 1 or item_number > len(data):
 else:
     # Get the nth item from the data
     item_data = data[item_number - 1]
-    material_imbalance_str = item_data['material imbalance']
-
-    # Split the string into a list of values
-    material_imbalance = [int(value) for value in material_imbalance_str.split(',')]
+    material_imbalance = item_data['material imbalance']
 
     # Create lists for x and y values
     x_values = [i * 0.5 for i in range(len(material_imbalance))]

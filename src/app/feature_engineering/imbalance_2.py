@@ -5,7 +5,7 @@ import json
 import re
 
 # Load the preprocess.json file
-with open('src/data/evaluation.json', 'r') as file:
+with open('src/data/feature_engineered.json', 'r') as file:
     data = json.load(file)
 
 # Iterate over the games and calculate material imbalance after each move
@@ -55,9 +55,9 @@ for entry in data:
         material_imbalance_vector.append(material_imbalance)
 
     # Update the entry with the evaluation values after each move
-    entry['white material count']=','.join(str(val) for val in white_count_vector)
-    entry['black material count']=','.join(str(val) for val in black_count_vector)
-    entry['material imbalance'] = ','.join(str(val) for val in material_imbalance_vector)
+    entry['white material count']= white_count_vector
+    entry['black material count']= black_count_vector
+    entry['material imbalance'] = material_imbalance_vector
     print("Success")
 
 

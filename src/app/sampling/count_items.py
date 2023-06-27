@@ -1,7 +1,7 @@
 import json
 
 # Read the JSON file
-json_file_path = 'src/data/sample.json'
+json_file_path = 'src/data/train.json'
 with open(json_file_path, 'r') as file:
     data = json.load(file)
 

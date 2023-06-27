@@ -14,14 +14,12 @@ if item_number < 1 or item_number > len(data):
 else:
     item_data = data[item_number - 1]
     # Get the data for White
-    white_count_str = item_data['white material count']
-    white_count = [int(value) for value in white_count_str.split(',')]
+    white_count = item_data['white material count']
     x_values = [i * 0.5 for i in range(len(white_count))]
     y_values = white_count
 
     # Get the data for Black
-    black_count_str = item_data['black material count']
-    black_count = [int(value) for value in black_count_str.split(',')]
+    black_count = item_data['black material count']
     x_values2 = [i * 0.5 for i in range(len(black_count))]
     y_values2 = black_count
 
