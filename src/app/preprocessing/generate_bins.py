@@ -2,21 +2,13 @@ import json
 
 # Define the rating bins
 rating_bins = [
-    (0, 399),
-    (400, 599),
-    (600, 799),
-    (800, 999),
-    (1000, 1199),
-    (1200, 1399),
-    (1400, 1599),
-    (1600, 1799),
-    (1800, 1999),
-    (2000, 2199),
-    (2200, float('inf'))
+    (0,999),
+    (1000, 1599),
+    (1600, float('inf'))
 ]
 
 # Load the JSON data from the file
-json_file_path = 'src/data/preprocess.json'
+json_file_path = 'src/data/feature_engineered.json'
 with open(json_file_path) as file:
     data = json.load(file)
 
@@ -37,7 +29,7 @@ for game in data:
     processed_data.append(game)
 
 # Save the processed data to a new JSON file
-preprocess_file_path = 'src/data/preprocess.json'
+preprocess_file_path = 'src/data/feature_engineered.json'
 with open(preprocess_file_path, 'w') as file:
     json.dump(processed_data, file, indent=4)
 
